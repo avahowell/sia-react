@@ -1,7 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react');
 var ReactDOM = require('react-dom');
-
 // SiaUI
 function SiaUI () {
   var pages = [
@@ -49,9 +48,7 @@ function SiaUI () {
       };
     },
     setPageIndex: function(index) {
-      for (i = 0; i < pages.length; i++) {
-        pages[i].selected = false;
-      }
+      pages[this.state.pageindex].selected = false;
       pages[index].selected = true;
       this.setState({pageindex: index});
     },
