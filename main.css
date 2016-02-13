@@ -1,0 +1,43 @@
+/* background: #2E333B
+ * background-dark: #050A16
+ * teal: #00CAA0
+ */
+body {
+}
+main {
+  background-color: #2E333B;
+  position: relative;
+  left: 4px;
+  margin-right: 100px;
+  height: 100%;
+}
+nav {
+  background-color: #050A16;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 150px;
+}
+.page {
+  display: inline-block;
+  position: absolute;
+  left: 150px;
+  right: 10px;
+  height: 100%;
+}
+.title {
+  text-align:center;
+  padding-top: 10px;
+  width: 100%;
+  color: #00CAA0;
+  font-size: 36px;
+}
+.navitem {
+  background-color: #2E333B;
+  color: #00CAA0;
+}
+.title {
+}
+.logo {
+
+}
