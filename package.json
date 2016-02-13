@@ -4,6 +4,7 @@
   "description": "Sia frontend with react",
   "main": "main.js",
   "dependencies": {
+    "electron": "^0.4.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babelify": "^7.2.0",

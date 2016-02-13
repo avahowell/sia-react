@@ -2,6 +2,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+// SiaUI
 function SiaUI () {
   var pages = [
     {"title": "Overview", "selected": true},
@@ -44,6 +45,7 @@ function SiaUI () {
     getInitialState: function() {
       return {
         pageindex: 0,
+        connected: false
       };
     },
     setPageIndex: function(index) {
@@ -58,6 +60,7 @@ function SiaUI () {
         <div>
           <UINav index={this.state.pageindex} navClick={this.setPageIndex} pages={pages} />
           <UIPage index={this.state.pageindex} pages={pages} />
+          {this.state.connected ? '': <div className="connectionmodal"><span className="connectionstatus">Connecting to sia...</span></div>}
         </div>
       );
     },
