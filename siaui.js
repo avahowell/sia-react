@@ -29,7 +29,7 @@ function SiaUI () {
       var navitems = this.props.pages.map(function(page) {
         i = i + 1
         return (
-          <li className="navitem" onClick={handleClick.bind(null, i-1)} key={i-1}> {page.title} </li>
+          <li className={page.selected ? "navitem navselected" : "navitem"} onClick={handleClick.bind(null, i-1)} key={i-1}> <span className="navtitle">{page.title}</span> </li>
         );
       });
       return (
@@ -46,7 +46,10 @@ function SiaUI () {
       };
     },
     setPageIndex: function(index) {
-      console.log(index)
+      for (i = 0; i < pages.length; i++) {
+        pages[i].selected = false;
+      }
+      pages[index].selected = true;
       this.setState({pageindex: index});
     },
     render: function () {

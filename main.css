@@ -2,42 +2,66 @@
  * background-dark: #050A16
  * teal: #00CAA0
  */
+
 body {
+  font-family: "Arial", sans-serif;
+  letter-spacing: 2px;
+  background-color: #050A16;
+  margin: 0;
+  padding: 0;
 }
 main {
-  background-color: #2E333B;
-  position: relative;
-  left: 4px;
-  margin-right: 100px;
+  width: 100%;
   height: 100%;
+}
+.logo {
+  position: absolute;
+  left: 0px;
+  padding-top: 10px;
+  width: 180px;
+  height: 80px;
 }
 nav {
   background-color: #050A16;
+  padding-top: 20px;
   position: absolute;
   left: 0px;
-  top: 0px;
-  width: 150px;
+  top: 90px;
+  bottom: 0px;
+  width: 180px;
 }
 .page {
+  background-color: #2E333B;
   display: inline-block;
   position: absolute;
-  left: 150px;
-  right: 10px;
+  left: 180px;
+  right: 0px;
+  top: 0px;
   height: 100%;
 }
 .title {
+  text-transform: uppercase;
   text-align:center;
-  padding-top: 10px;
+  padding-top: 25px;
+  padding-bottom: 10px;
   width: 100%;
   color: #00CAA0;
   font-size: 36px;
 }
 .navitem {
+  margin-top: 2px;
+  list-style-type: none;
+  text-align: center;
   background-color: #2E333B;
+  height: 50px;
   color: #00CAA0;
 }
-.title {
+.navselected {
+  background-color: #404751;
 }
-.logo {
-
+.navtitle {
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-top: 15px;
+  display: inline-block;
 }
