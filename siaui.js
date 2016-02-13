@@ -4,12 +4,12 @@ var ReactDOM = require('react-dom');
 
 function SiaUI () {
   var pages = [
-    { "title": "Overview", "selected": true},
-      {"title": "Files", "selected": false},
-      {"title": "Hosting", "selected": false},
-      {"title": "Wallet", "selected": false},
-      {"title": "Plugins", "selected": false},
-      {"title": "Notifications", "selected": false},
+    {"title": "Overview", "selected": true},
+    {"title": "Files", "selected": false},
+    {"title": "Hosting", "selected": false},
+    {"title": "Wallet", "selected": false},
+    {"title": "Plugins", "selected": false},
+    {"title": "Notifications", "selected": false},
   ];
   var UIPage = React.createClass({
     render: function () {
@@ -35,6 +35,7 @@ function SiaUI () {
       return (
         <nav>
           {navitems}
+          <p className="about">About V0.5.0</p>
         </nav>
       );
     }

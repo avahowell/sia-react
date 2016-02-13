@@ -1,6 +1,8 @@
 /* background: #2E333B
  * background-dark: #050A16
  * teal: #00CAA0
+ * nav item hover: #393F47;
+ * nav item selected: #404751;
  */
 
 body {
@@ -54,7 +56,11 @@ nav {
   text-align: center;
   background-color: #2E333B;
   height: 50px;
+  cursor: default;;
   color: #00CAA0;
+}
+.navitem:hover {
+  background-color: #393F47;
 }
 .navselected {
   background-color: #404751;
@@ -64,4 +70,19 @@ nav {
   font-size: 14px;
   margin-top: 15px;
   display: inline-block;
+}
+.about {
+  display: inline-block;
+  color: #00CAA0;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 45px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media(max-height: 520px) {
+  .about {
+    display: none;
+  }
 }
