@@ -3,22 +3,22 @@
   "version": "0.0.1",
   "description": "Sia frontend with react",
   "main": "main.js",
-  "dependencies": {
-    "electron": "^0.4.1",
-    "babel-preset-es2015": "^6.3.13",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-eslint": "^5.0.0",
+    "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.3.13",
-    "babelify": "^7.2.0",
-    "browserify": "^13.0.0",
+    "electron-prebuilt": "^0.36.8",
+    "eslint": "^2.2.0",
+    "eslint-plugin-react": "^4.0.0",
     "react": "^0.14.7",
-    "reactify": "^1.1.1",
     "react-dom": "^0.14.7"
   },
-  "devDependencies": {
-    "babel-preset-react": "^6.3.13"
-  },
   "scripts": {
-    "build": "browserify main.js -o bundle.js -t reactify",
-    "test": "node test.js"
+    "build": "babel src -d lib",
+    "start": "babel src -d lib && electron ./lib",
+    "lint": "eslint ./src"
   },
   "author": "Johnathan Howell"
 }

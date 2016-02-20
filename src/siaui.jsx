@@ -1,6 +1,5 @@
-/** @jsx React.DOM */
-var React = require('react');
-var ReactDOM = require('react-dom');
+import 'react';
+import 'react-dom';
 // SiaUI
 function SiaUI () {
   var pages = [
@@ -44,7 +43,7 @@ function SiaUI () {
     getInitialState: function() {
       return {
         pageindex: 0,
-        connected: false
+        connected: true 
       };
     },
     setPageIndex: function(index) {
