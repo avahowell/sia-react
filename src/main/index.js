@@ -9,11 +9,9 @@ import Path from 'path'
 let mainWindow
 
 // Electron Application lifecycle callbacks
-
 App.on('ready', () => {
-	console.log('test')
 	// Create the main window
-	mainWindow = new BrowserWindow({width: 800, height: 600})
+	mainWindow = new BrowserWindow({width: 800, height: 600, autoHideMenuBar: true})
 
 	// Perform the initial DOM load
 	mainWindow.loadURL(Path.join('file://', __dirname, '/index.html'))

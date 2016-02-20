@@ -1,5 +1,5 @@
-import 'react';
-import 'react-dom';
+const React = require('react')
+const ReactDOM = require('react-dom')
 // SiaUI
 function SiaUI () {
   var pages = [
