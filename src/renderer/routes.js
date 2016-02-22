@@ -6,13 +6,13 @@ import React from 'react'
 /* eslint-enable no-unused-vars */
 
 // Import the endpoints for our routes.
-import App from './app.js'
-import Overview from './overview.js'
-import Files from './files.js'
-import Hosting from './hosting.js'
-import Wallet from './wallet.js'
-import Notifications from './notifications.js'
-import Settings from './settings.js'
+import App from './components/app.js'
+import Overview from './components/overview.js'
+import Files from './components/files.js'
+import Hosting from './components/hosting.js'
+import Wallet from './components/wallet.js'
+import Notifications from './components/notifications.js'
+import Settings from './components/settings.js'
 
 // Construct the router using our endpoints
 const routes = (
