@@ -1,9 +1,9 @@
 // Sia renderer webpack configuration
 module.exports = {
 	context: __dirname + '/src/renderer/',
-	entry: './client.js',
+	entry: './index.js',
 	output: {
-		filename: './lib/renderer/bundle.js'
+		filename: './bundle.js'
 	},
 	resolveLoader: {
 		modulesDirectories: [__dirname+'/node_modules', __dirname+'/src/renderer']
