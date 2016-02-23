@@ -6,7 +6,7 @@ module.exports = {
 		filename: './bundle.js'
 	},
 	resolveLoader: {
-		modulesDirectories: [__dirname+'/node_modules', __dirname+'/src/renderer']
+		modulesDirectories: [__dirname+'/node_modules',  __dirname+'/src', __dirname+'/src/renderer']
 	},
 	target: 'electron',
 	module: {

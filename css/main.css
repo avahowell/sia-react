@@ -42,6 +42,7 @@ nav {
   right: 0px;
   top: 0px;
   height: 100%;
+  text-align: center;
 }
 .title {
   text-transform: uppercase;

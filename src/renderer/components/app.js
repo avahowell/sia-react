@@ -3,6 +3,9 @@ import {Link} from 'react-router'
 
 // The main Sia UI component, App.
 export default class App extends React.Component {
+	constructor(props) {
+		super(props)
+	}
 	render() {
 		return (
 			<div>
@@ -14,6 +17,7 @@ export default class App extends React.Component {
 					<Link to="/notifications" activeClassName="navselected">Notifications</Link>
 					<Link to="/settings" activeClassName="navselected">Settings</Link>
 				</nav>
+				/* this.props.children contains the child routes in the app. */
 				{this.props.children}
 			</div>
 		)

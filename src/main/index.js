@@ -1,7 +1,6 @@
 // index.js is the main entry point for the Sia Electron application.
 // Electron module imports
-import App from 'app'
-import BrowserWindow from 'browser-window'
+import {app, BrowserWindow} from 'electron'
 // Node module imports
 import Path from 'path'
 
@@ -9,7 +8,7 @@ import Path from 'path'
 let mainWindow
 
 // Electron Application lifecycle callbacks
-App.on('ready', () => {
+app.on('ready', () => {
 	// Create the main window
 	mainWindow = new BrowserWindow({width: 800, height: 600, autoHideMenuBar: true})
 
@@ -23,6 +22,6 @@ App.on('ready', () => {
 	})
 })
 
-App.on('window-all-closed', () => {
-	App.quit()
+app.on('window-all-closed', () => {
+	app.quit()
 })
