@@ -9,9 +9,6 @@ export default class Overview extends React.Component {
 	render() {
 		return (
 			<div className="page">
-				<div className="status">
-					Block Height: {this.props.consensus.height}
-				</div>
 			</div>
 		)
 	}

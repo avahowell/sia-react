@@ -27,7 +27,7 @@
   "scripts": {
     "build": "babel src/main -d ./ && webpack",
     "start": "babel src/main -d ./ && webpack && electron .",
-    "test": "electron-mocha ./test --compilers js:babel-register",
+    "test": "babel src/main -d ./ && webpack && electron-mocha ./test --compilers js:babel-register",
     "lint": "eslint ./src"
   },
   "author": "Johnathan Howell"
