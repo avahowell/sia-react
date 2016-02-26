@@ -39,8 +39,6 @@ main {
 	border-color: #00CAA0;
 	margin: 100px 10px 10px 20px;
 	display: inline-block;
-	overflow
-	text-overflow: ellipsis;
 }
 nav {
 	background-color: #050A16;
