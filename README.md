@@ -4,7 +4,7 @@ Front-end for [Sia](https://sia.tech) with electron, [React](https://facebook.gi
 
 # Build
 `npm install`
-`npm start`
+`npm run start`
 
 # Test
-`npm test`
+`npm run test`
