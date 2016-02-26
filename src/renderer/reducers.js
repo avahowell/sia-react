@@ -24,7 +24,7 @@ const initialWalletState = {
 
 		siafundbalance: '',
 		siacoinclaimbalance: '',
-	}
+	},
 }
 
 // Sia-UI consensus reducer
@@ -59,7 +59,7 @@ function wallet(state = initialWalletState, action) {
 	case RECEIVE_WALLET:
 		return Object.assign({}, state, {
 			loading: false,
-			data: action.data
+			data: action.data,
 		})
 	case API_ERROR:
 		console.error(action.error)

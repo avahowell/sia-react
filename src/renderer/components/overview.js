@@ -6,10 +6,10 @@ const OverviewView = ({ height, walletstatus }) => {
 	return (
 		<div className="page">
 			<div className="infobubble">
-				<span> Block height: { height } </span>
+				<span> Block height: {height} </span>
 			</div>
 			<div className="infobubble">
-				<span> Wallet status: { walletstatus } </span>
+				<span> Wallet status: {walletstatus} </span>
 			</div>
 		</div>
 	)
