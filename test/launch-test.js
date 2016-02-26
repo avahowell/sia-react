@@ -8,15 +8,12 @@ import chaiAsPromised from 'chai-as-promised'
 chai.should()
 chai.use(chaiAsPromised)
 
-// 20s launch timeout for this test
-const launchTimeout = 20000
-
 /* eslint-disable no-invalid-this */
 /* eslint-disable no-magic-numbers */
 // Launch Sia-UI using spectron and verify that a window is created, and the React UI is mounted.
 describe('sia application launch', function() {
 	// 20s timeout for this test group
-	this.timeout(launchTimeout)
+	this.timeout(20000)
 
 	// Launch an application instance using spectron before the test group is run
 	before(() => {
