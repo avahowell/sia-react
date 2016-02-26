@@ -15,7 +15,7 @@ describe('siad action calls', () => {
 	afterEach(() => {
 		nock.cleanAll()
 	})
-	it('creates RECEIVE_CONSENSUS on successful /wallet call', (done) => {
+	it('creates RECEIVE_WALLET on successful /wallet call', (done) => {
 		const expectedWallet = {
 			encrypted: true,
 			unlocked: false,
