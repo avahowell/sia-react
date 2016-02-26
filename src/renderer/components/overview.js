@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 // Stateless Overview view component
-/* eslint-disable no-unused-expressions */
 const OverviewView = ({ height, walletstatus }) => (
 	<div className="page">
 		<div className="infobubble">
