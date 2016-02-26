@@ -40,7 +40,7 @@
     "no-irregular-whitespace": 1,
     "no-labels": 1,
     "no-lonely-if": 1,
-    "no-magic-numbers": 1,
+    //"no-magic-numbers": 1,
     "no-octal": 1,
     "no-param-reassign": 1,
     "no-path-concat": 1,

@@ -1,16 +1,17 @@
 // This is the main entry point for the Sia-UI renderer process.
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Route, IndexRoute, Router, hashHistory} from 'react-router'
+import { Route, IndexRoute, Router, hashHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { getConsensus } from './actions/consensus.js'
 import { getWallet } from './actions/wallet.js'
-import reducer from './reducers/rootreducer.js'
+import { getGateway } from './actions/gateway.js'
+import reducer from './reducers'
 import thunk from 'redux-thunk'
 
 // Initialize Sia-UI's redux state store.
-// Use the combined reducer from reducers.js
+// Use the combined reducer from reducers
 // Enable redux-thunk, which is required for our async actions
 const store = createStore(
 	reducer,
@@ -19,8 +20,12 @@ const store = createStore(
 const getState = () => {
 	store.dispatch(getConsensus())
 	store.dispatch(getWallet())
+	store.dispatch(getGateway())
 }
 getState()
+// Poll for state every 10 seconds
+// Should figure out a better way of doing this.
+setInterval(getState, 10000)
 
 // Import the endpoints for our routes.
 import App from './components/app.js'

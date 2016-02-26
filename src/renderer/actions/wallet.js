@@ -2,24 +2,6 @@
 import SiadWrapper from 'sia.js'
 import { apiError } from './error.js'
 
-// Helper functions
-/**
- * apiCall wraps a Sia API call and returns a Promise
- * Promises are more convenient for usage with redux-thunk
- * @param {url} string - Siad url to request
- * @returns {Promise} successParams: data, failureParams: error
- */
-function apiCall(url) {
-	return new Promise((resolve, reject) => {
-		SiadWrapper.call(url, (err, data) => {
-			if (err) {
-				reject(err)
-			}
-			resolve(data)
-		})
-	})
-}
-
 export const REQUEST_WALLET = 'REQUEST_WALLET'
 export const RECEIVE_WALLET = 'RECEIVE_WALLET'
 
@@ -28,7 +10,13 @@ export const requestWallet = () => ({
 })
 export const receiveWallet = (wallet) => ({
 	type: RECEIVE_WALLET,
-	data: wallet,
+	confirmedsiacoinbalance: wallet.confirmedsiacoinbalance,
+	unconfirmedoutgoingsiacoins: wallet.unconfirmedoutgoingsiacoins,
+	unconfirmedincomingsiacoins: wallet.unconfirmedincomingsiacoins,
+	siafundbalance: wallet.siafundbalance,
+	siacoinclaimbalance: wallet.siacoinclaimbalance,
+	encrypted: wallet.encrypted,
+	unlocked: wallet.unlocked,
 })
 // Asynchronously request wallet data from Siad.
 // Dispatch REQUEST_WALLET when the request starts,
@@ -36,11 +24,10 @@ export const receiveWallet = (wallet) => ({
 // or API_ERROR if the request fails.
 export const getWallet = () => (dispatch) => {
 	dispatch(requestWallet())
-	return apiCall('/wallet')
-		.then((wallet) => {
-			dispatch(receiveWallet(wallet))
-		})
-		.catch((err) => {
+	SiadWrapper.call('/wallet', (err, wallet) => {
+		if (err) {
 			dispatch(apiError(err))
-		})
+		}
+		dispatch(receiveWallet(wallet))
+	})
 }

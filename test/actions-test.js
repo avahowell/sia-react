@@ -8,7 +8,7 @@ import nock from 'nock'
 const middlewares = [ thunk ]
 const mockStore = configureMockStore(middlewares)
 const HTTP_OK = 200
-
+/* eslint-disable no-magic-numbers */
 // Test async siad action calls
 // Intercept and mock Siad HTTP requests using nock
 describe('siad action calls', () => {
@@ -29,34 +29,47 @@ describe('siad action calls', () => {
 		}
 		const expectedActions = [
 			{ type: REQUEST_WALLET },
-			{ type: RECEIVE_WALLET, data: expectedWallet },
+			{ type: RECEIVE_WALLET,
+				encrypted: true,
+				unlocked: false,
+
+				confirmedsiacoinbalance: '',
+				unconfirmedoutgoingsiacoins: '',
+				unconfirmedincomingsiacoins: '',
+
+				siafundbalance: '',
+				siacoinclaimbalance: '',
+			},
 		]
 
 		nock('http://localhost:9980')
 			.get('/wallet')
 			.reply(HTTP_OK, expectedWallet)
 
-		const store = mockStore({ wallet: {} }, expectedActions, done)
+		const store = mockStore({}, expectedActions, done)
 		store.dispatch(getWallet())
 	})
 	it('creates RECEIVE_CONSENSUS on successful /consensus call', (done) => {
 		const expectedConsensus = {
 			'height': 38639,
 			'currentblock': '0000000000003c098400ee084f7b19e6d8a2a38c8ee994904d329834e5cd881d',
-			/* eslint-disable no-magic-numbers */
 			'target': [0, 0, 0, 0, 0, 1, 92, 120, 146, 147, 220, 157, 92, 64, 10, 26, 77, 1, 101, 213, 45, 243, 160, 81, 148, 192, 23, 76, 116, 109, 6, 156],
-			/* eslint-enable no-magic-numbers */
 		}
 		const expectedActions = [
 			{ type: REQUEST_CONSENSUS },
-			{ type: RECEIVE_CONSENSUS, data: expectedConsensus },
+			{ type: RECEIVE_CONSENSUS,
+				height: 38639,
+			  'currentblock': '0000000000003c098400ee084f7b19e6d8a2a38c8ee994904d329834e5cd881d',
+				'target': [0, 0, 0, 0, 0, 1, 92, 120, 146, 147, 220, 157, 92, 64, 10, 26, 77, 1, 101, 213, 45, 243, 160, 81, 148, 192, 23, 76, 116, 109, 6, 156],
+			},
 		]
 
 		nock('http://localhost:9980')
 			.get('/consensus')
 			.reply(HTTP_OK, expectedConsensus)
 
-		const store = mockStore({ consensus: {} }, expectedActions, done)
+		const store = mockStore({}, expectedActions, done)
 		store.dispatch(getConsensus())
 	})
 })
+/* eslint-disable no-magic-numbers */
