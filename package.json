@@ -12,14 +12,19 @@
     "babel-preset-react": "^6.3.13",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
-    "electron-mocha": "^0.8.0",
     "electron-prebuilt": "^0.36.8",
     "eslint": "^2.2.0",
     "eslint-plugin-react": "^4.0.0",
+    "json": "^9.0.3",
+    "json-loader": "^0.5.4",
     "mocha": "^2.4.5",
+    "nock": "^7.2.2",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0",
+    "redux": "^3.3.1",
+    "redux-mock-store": "0.0.6",
+    "redux-thunk": "^1.0.3",
     "sia.js": "^0.1.8",
     "spectron": "^0.36.1",
     "webpack": "^1.12.13"
@@ -27,8 +32,8 @@
   "scripts": {
     "build": "babel src/main -d ./ && webpack",
     "start": "babel src/main -d ./ && webpack && electron .",
-    "test": "babel src/main -d ./ && webpack && electron-mocha ./test --compilers js:babel-register",
-    "lint": "eslint ./src"
+    "test": "babel src/main -d ./ && webpack && mocha ./test --compilers js:babel-register",
+    "lint": "eslint ./test ./src"
   },
   "author": "Johnathan Howell"
 }

@@ -1,4 +1,4 @@
-// routes.js: React router for Sia-UI
+// routes.js: react-router routes for Sia-UI
 import {Route, IndexRoute, Router, hashHistory} from 'react-router'
 // We need React for JSX, but don't actually use it in this module.
 // Therefore, disable no-unused-vars for this block
