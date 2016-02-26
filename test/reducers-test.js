@@ -1,4 +1,4 @@
-// TODO: split up these tests into reducers/, actions/ 
+// TODO: split up these tests into reducers/, actions/
 
 import reducer from '../src/renderer/reducers/'
 import {RECEIVE_WALLET} from '../src/renderer/actions/wallet.js'
@@ -7,7 +7,6 @@ import {RECEIVE_GATEWAY} from '../src/renderer/actions/gateway.js'
 import {expect} from 'chai'
 
 // Test Sia-UI reducers
-/* eslint-disable no-magic-numbers */
 describe('sia-ui reducer', () => {
 	it('should return initial state', () => {
 		expect(reducer(undefined, {})).to.deep.equal({
@@ -54,4 +53,3 @@ describe('sia-ui reducer', () => {
 		expect(newstate.overview.peers).to.equal(1)
 	})
 })
-/* eslint-enable no-magic-numbers */
