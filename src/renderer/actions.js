@@ -4,7 +4,7 @@ import SiadWrapper from 'sia.js'
 
 // Helper functions
 /**
- * Wraps a Sia API call and returns a Promise
+ * apiCall wraps a Sia API call and returns a Promise
  * Promises are more convenient for usage with redux-thunk
  * @param {url} string - Siad url to request
  * @returns {Promise} successParams: data, failureParams: error
