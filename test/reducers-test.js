@@ -1,5 +1,6 @@
-import reducer from '../src/renderer/reducers.js'
-import * as actions from '../src/renderer/actions.js'
+import reducer from '../src/renderer/reducers/rootreducer.js'
+import {REQUEST_WALLET, RECEIVE_WALLET} from '../src/renderer/actions/wallet.js'
+import {REQUEST_CONSENSUS, RECEIVE_CONSENSUS} from '../src/renderer/actions/consensus.js'
 import {expect} from 'chai'
 
 // Test Sia-UI reducers.
@@ -32,7 +33,7 @@ describe('sia-ui reducer', () => {
 		})
 	})
 	it('should handle REQUEST_CONSENSUS', () => {
-		expect(reducer({}, {type: actions.REQUEST_CONSENSUS}).consensus.loading).to.equal(true)
+		expect(reducer({}, {type: REQUEST_CONSENSUS}).consensus.loading).to.equal(true)
 	})
 	it('should handle RECEIVE_CONSENSUS', () => {
 		const consensusdata = {
@@ -40,12 +41,12 @@ describe('sia-ui reducer', () => {
 			currentblock: '1',
 			target: [1],
 		}
-		const newstate = reducer({}, {type: actions.RECEIVE_CONSENSUS, data: consensusdata})
+		const newstate = reducer({}, {type: RECEIVE_CONSENSUS, data: consensusdata})
 		expect(newstate.wallet.loading).to.equal(false)
 		expect(newstate.consensus.data).to.deep.equal(consensusdata)
 	})
 	it('should handle REQUEST_WALLET', () => {
-		expect(reducer({}, {type: actions.REQUEST_WALLET}).wallet.loading).to.equal(true)
+		expect(reducer({}, {type: REQUEST_WALLET}).wallet.loading).to.equal(true)
 	})
 	it('should handle RECEIVE_WALLET', () => {
 		const walletdata = {
@@ -59,7 +60,7 @@ describe('sia-ui reducer', () => {
 			siafundbalance: '0',
 			siacoinclaimbalance: '0',
 		}
-		const newstate = reducer({}, {type: actions.RECEIVE_WALLET, data: walletdata})
+		const newstate = reducer({}, {type: RECEIVE_WALLET, data: walletdata})
 		expect(newstate.wallet.loading).to.equal(false)
 		expect(newstate.wallet.data).to.deep.equal(walletdata)
 	})

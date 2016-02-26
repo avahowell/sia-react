@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom'
 import {Route, IndexRoute, Router, hashHistory} from 'react-router'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
-import * as actions from './actions.js'
-import reducer from './reducers.js'
+import { getConsensus } from './actions/consensus.js'
+import { getWallet } from './actions/wallet.js'
+import reducer from './reducers/rootreducer.js'
 import thunk from 'redux-thunk'
 
 // Initialize Sia-UI's redux state store.
@@ -16,10 +17,10 @@ const store = createStore(
 	applyMiddleware(thunk)
 )
 const getState = () => {
-	store.dispatch(actions.getConsensus())
-	store.dispatch(actions.getWallet())
+	store.dispatch(getConsensus())
+	store.dispatch(getWallet())
 }
-setInterval(getState, 1000)
+getState()
 
 // Import the endpoints for our routes.
 import App from './components/app.js'

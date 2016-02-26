@@ -14,7 +14,7 @@ app.on('ready', () => {
 
 	// Perform the initial DOM load
 	mainWindow.loadURL(Path.join('file://', __dirname, '/index.html'))
-
+	mainWindow.toggleDevTools()
 	// Dereference mainWindow when it has been closed so the GC cleans up
 	mainWindow.on('closed', () => {
 		mainWindow = null

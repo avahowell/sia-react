@@ -1,5 +1,6 @@
 // Test Sia-UI actions
-import * as actions from '../src/renderer/actions.js'
+import {REQUEST_WALLET, RECEIVE_WALLET, getWallet} from '../src/renderer/actions/wallet.js'
+import {REQUEST_CONSENSUS, RECEIVE_CONSENSUS, getConsensus} from '../src/renderer/actions/consensus.js'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import nock from 'nock'
@@ -27,8 +28,8 @@ describe('siad action calls', () => {
 			siacoinclaimbalance: '',
 		}
 		const expectedActions = [
-			{ type: actions.REQUEST_WALLET },
-			{ type: actions.RECEIVE_WALLET, data: expectedWallet },
+			{ type: REQUEST_WALLET },
+			{ type: RECEIVE_WALLET, data: expectedWallet },
 		]
 
 		nock('http://localhost:9980')
@@ -36,7 +37,7 @@ describe('siad action calls', () => {
 			.reply(HTTP_OK, expectedWallet)
 
 		const store = mockStore({ wallet: {} }, expectedActions, done)
-		store.dispatch(actions.getWallet())
+		store.dispatch(getWallet())
 	})
 	it('creates RECEIVE_CONSENSUS on successful /consensus call', (done) => {
 		const expectedConsensus = {
@@ -47,8 +48,8 @@ describe('siad action calls', () => {
 			/* eslint-enable no-magic-numbers */
 		}
 		const expectedActions = [
-			{ type: actions.REQUEST_CONSENSUS },
-			{ type: actions.RECEIVE_CONSENSUS, data: expectedConsensus },
+			{ type: REQUEST_CONSENSUS },
+			{ type: RECEIVE_CONSENSUS, data: expectedConsensus },
 		]
 
 		nock('http://localhost:9980')
@@ -56,6 +57,6 @@ describe('siad action calls', () => {
 			.reply(HTTP_OK, expectedConsensus)
 
 		const store = mockStore({ consensus: {} }, expectedActions, done)
-		store.dispatch(actions.getConsensus())
+		store.dispatch(getConsensus())
 	})
 })
