@@ -8,7 +8,7 @@ import nock from 'nock'
 const middlewares = [ thunk ]
 const mockStore = configureMockStore(middlewares)
 const HTTP_OK = 200
-/* eslint-disable no-magic-numbers */
+
 // Test async siad action calls
 // Intercept and mock Siad HTTP requests using nock
 describe('siad action calls', () => {
@@ -72,4 +72,3 @@ describe('siad action calls', () => {
 		store.dispatch(getConsensus())
 	})
 })
-/* eslint-disable no-magic-numbers */
