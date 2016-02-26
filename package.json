@@ -1,8 +1,13 @@
 {
   "name": "sia-react",
   "version": "0.0.1",
-  "description": "Sia frontend with react",
+  "description": "Sia frontend with react and redux",
   "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnathanhowell/sia-react"
+  },
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.5.1",
@@ -15,7 +20,6 @@
     "electron-prebuilt": "^0.36.8",
     "eslint": "^2.2.0",
     "eslint-plugin-react": "^4.0.0",
-    "json": "^9.0.3",
     "json-loader": "^0.5.4",
     "mocha": "^2.4.5",
     "nock": "^7.2.2",
