@@ -15,6 +15,20 @@ describe('sia-ui reducer', () => {
 					target: [],
 				},
 			},
+			wallet: {
+				loading: false,
+				data: {
+					encrypted: true,
+					unlocked: false,
+
+					confirmedsiacoinbalance: '',
+					unconfirmedoutgoingsiacoins: '',
+					unconfirmedincomingsiacoins: '',
+
+					siafundbalance: '',
+					siacoinclaimbalance: '',
+				},
+			},
 		})
 	})
 	it('should handle REQUEST_CONSENSUS', () => {
@@ -26,14 +40,28 @@ describe('sia-ui reducer', () => {
 			currentblock: '1',
 			target: [1],
 		}
-		expect(reducer({}, {type: actions.RECEIVE_CONSENSUS, data: consensusdata})).to.deep.equal(
-			{
-				consensus: {
-					loading: false,
-					data: consensusdata,
-				},
-			}
-		)
+		const newstate = reducer({}, {type: actions.RECEIVE_CONSENSUS, data: consensusdata})
+		expect(newstate.wallet.loading).to.equal(false)
+		expect(newstate.consensus.data).to.deep.equal(consensusdata)
+	})
+	it('should handle REQUEST_WALLET', () => {
+		expect(reducer({}, {type: actions.REQUEST_WALLET}).wallet.loading).to.equal(true)
+	})
+	it('should handle RECEIVE_WALLET', () => {
+		const walletdata = {
+			encrypted: true,
+			unlocked: true,
+
+			confirmedsiacoinbalance: '1337',
+			unconfirmedoutgoingsiacoins: '0',
+			unconfirmedincomingsiacoins: '0',
+
+			siafundbalance: '0',
+			siacoinclaimbalance: '0',
+		}
+		const newstate = reducer({}, {type: actions.RECEIVE_WALLET, data: walletdata})
+		expect(newstate.wallet.loading).to.equal(false)
+		expect(newstate.wallet.data).to.deep.equal(walletdata)
 	})
 })
 /* eslint-enable no-magic-numbers */

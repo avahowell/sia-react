@@ -14,6 +14,30 @@ describe('siad action calls', () => {
 	afterEach(() => {
 		nock.cleanAll()
 	})
+	it('creates RECEIVE_CONSENSUS on successful /wallet call', (done) => {
+		const expectedWallet = {
+			encrypted: true,
+			unlocked: false,
+
+			confirmedsiacoinbalance: '',
+			unconfirmedoutgoingsiacoins: '',
+			unconfirmedincomingsiacoins: '',
+
+			siafundbalance: '',
+			siacoinclaimbalance: '',
+		}
+		const expectedActions = [
+			{ type: actions.REQUEST_WALLET },
+			{ type: actions.RECEIVE_WALLET, data: expectedWallet },
+		]
+
+		nock('http://localhost:9980')
+			.get('/wallet')
+			.reply(HTTP_OK, expectedWallet)
+
+		const store = mockStore({ wallet: {} }, expectedActions, done)
+		store.dispatch(actions.getWallet())
+	})
 	it('creates RECEIVE_CONSENSUS on successful /consensus call', (done) => {
 		const expectedConsensus = {
 			'height': 38639,

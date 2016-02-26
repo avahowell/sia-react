@@ -23,8 +23,21 @@ function apiCall(url) {
 // Sia-UI redux Action types and creator functions
 export const REQUEST_CONSENSUS = 'REQUEST_CONSENSUS'
 export const RECEIVE_CONSENSUS = 'RECEIVE_CONSENSUS'
+export const REQUEST_WALLET = 'REQUEST_WALLET'
+export const RECEIVE_WALLET = 'RECEIVE_WALLET'
 export const API_ERROR = 'API_ERROR'
 
+function requestWallet() {
+	return {
+		type: REQUEST_WALLET,
+	}
+}
+function receiveWallet(wallet) {
+	return {
+		type: RECEIVE_WALLET,
+		data: wallet,
+	}
+}
 function requestConsensus() {
 	return {
 		type: REQUEST_CONSENSUS,
@@ -42,7 +55,7 @@ function apiError(error) {
 		error,
 	}
 }
-// Aynchronously request consensus data from Siad.
+// Asynchronously request consensus data from Siad.
 // Dispatch REQUEST_CONSENSUS when the request starts,
 // RECEIVE_CONSENSUS when the request finishes without error,
 // or API_ERROR if the request fails.
@@ -52,6 +65,22 @@ export function getConsensus() {
 		return apiCall('/consensus')
 			.then((consensus) => {
 				dispatch(receiveConsensus(consensus))
+			})
+			.catch((err) => {
+				dispatch(apiError(err))
+			})
+	}
+}
+// Asynchronously request wallet data from Siad.
+// Dispatch REQUEST_WALLET when the request starts,
+// RECEIVE_WALLET when the request finishes without error,
+// or API_ERROR if the request fails.
+export function getWallet() {
+	return (dispatch) => {
+		dispatch(requestWallet())
+		return apiCall('/wallet')
+			.then((wallet) => {
+				dispatch(receiveWallet(wallet))
 			})
 			.catch((err) => {
 				dispatch(apiError(err))

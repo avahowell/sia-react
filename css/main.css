@@ -3,6 +3,8 @@
  * teal: #00CAA0
  * nav item hover: #393F47;
  * nav item selected: #404751;
+ *
+ * TODO: break up this CSS into SASS partials and pack w/ webpack
  */
 
 html,body {
@@ -24,6 +26,20 @@ main {
   padding-top: 10px;
   width: 180px;
   height: 80px;
+}
+.infobubble {
+  width: 150px;
+  height: 150px;
+  /* ghetto valign */
+  line-height: 150px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  border: 2px solid;
+  border-radius: 100%;
+  border-color: #00CAA0;
+  margin: 100px 20px 10px 20px;
+  display: inline-block;
 }
 nav {
   background-color: #050A16;
