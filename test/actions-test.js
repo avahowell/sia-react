@@ -24,7 +24,7 @@ describe('siad action calls', () => {
 		}
 		const expectedActions = [
 			{ type: actions.REQUEST_CONSENSUS },
-			{ type: actions.RECEIVE_CONSENSUS, consensus: expectedConsensus },
+			{ type: actions.RECEIVE_CONSENSUS, data: expectedConsensus },
 		]
 
 		nock('http://localhost:9980')

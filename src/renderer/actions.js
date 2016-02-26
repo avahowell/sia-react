@@ -33,7 +33,7 @@ function requestConsensus() {
 function receiveConsensus(consensus) {
 	return {
 		type: RECEIVE_CONSENSUS,
-		consensus,
+		data: consensus,
 	}
 }
 function apiError(error) {

@@ -2,10 +2,20 @@
 import { combineReducers } from 'redux'
 import { REQUEST_CONSENSUS, RECEIVE_CONSENSUS, API_ERROR } from './actions.js'
 
+// Initial Sia-UI state
+const initialState = {
+	loading: false,
+	data: {
+		height: 0,
+		currentblock: '',
+		target: [],
+	},
+}
+
 // Sia-UI consensus reducer
 // Set the UI's loading state to true when a consensus request starts, false when the request finishes
 // Update state.consensus with the received struct after a successful request (RECEIVE_CONSENSUS)
-function consensus(state = {loading: false, consensus: {}}, action) {
+function consensus(state = initialState, action) {
 	switch (action.type) {
 	case REQUEST_CONSENSUS:
 		return Object.assign({}, state, {
@@ -14,7 +24,7 @@ function consensus(state = {loading: false, consensus: {}}, action) {
 	case RECEIVE_CONSENSUS:
 		return Object.assign({}, state, {
 			loading: false,
-			consensus: action.consensus,
+			data: action.data,
 		})
 	// TODO: error handling in UI state.
 	// For now, just log it out to the console.
