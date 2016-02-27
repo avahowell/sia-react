@@ -13,6 +13,7 @@
     "babel-loader": "^6.2.3",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.3.13",
+    "css-loader": "^0.23.1",
     "electron-prebuilt": "^0.36.8",
     "json-loader": "^0.5.4",
     "react": "^0.14.7",
@@ -22,6 +23,9 @@
     "redux": "^3.3.1",
     "redux-thunk": "^1.0.3",
     "sia.js": "^0.1.8",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
     "webpack": "^1.12.13"
   },
   "devDependencies": {
@@ -34,13 +38,14 @@
     "mocha": "^2.4.5",
     "nock": "^7.2.2",
     "redux-mock-store": "0.0.6",
+    "sass-lint": "^1.5.1",
     "spectron": "^0.36.1"
   },
   "scripts": {
     "build": "babel src/main -d ./ && webpack",
     "start": "babel src/main -d ./ && webpack && electron .",
     "test": "babel src/main -d ./ && webpack && mocha ./test --compilers js:babel-register",
-    "lint": "eslint ./test ./src"
+    "lint": "eslint ./test ./src && sass-lint -c ./.sass-lint.yml -v"
   },
   "author": "Johnathan Howell"
 }

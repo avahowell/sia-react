@@ -1,0 +1,98 @@
+$font-stack: 'Roboto Condensed', sans-serif;
+
+$background-light: #2e333b;
+$background-dark: #050a16;
+$color-teal: #00caa0;
+$color-hover: #393f47;
+$color-selected: #404751;
+$color-white: #fff;
+
+$body-margin: 0;
+$body-padding: 0;
+
+$nav-width: 180px;
+$nav-item-height: 50px;
+$nav-item-font-size: 18px;
+$logo-height: 80px;
+
+body {
+  background-color: $background-dark;
+  font: 100% $font-stack;
+  font-size: 18px;
+  font-weight: 300;
+  margin: $body-margin;
+  padding: $body-padding;
+
+  .logo {
+    height: $logo-height;
+    left: 0;
+    padding-top: 10px;
+    position: absolute;
+    width: $nav-width;
+  }
+}
+
+nav {
+  background-color: $background-dark;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: $logo-height + 30px;
+  width: $nav-width;
+
+  a {
+    background-color: $background-light;
+    color: $color-teal;
+    cursor: default;
+    display: inline-block;
+    font-size: $nav-item-font-size;
+    height: $nav-item-height;
+    line-height: $nav-item-height;
+    margin-top: 2px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+
+    &:hover {
+      background-color: $color-hover;
+    }
+  }
+
+  .navselected {
+    background-color: $color-selected;
+  }
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+.page {
+  background-color: $background-light;
+  display: inline-block;
+  height: 100%;
+  left: $nav-width;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+
+  h1 {
+    color: $color-white;
+  }
+
+  .infobubble {
+    border: 2px solid;
+    border-color: $color-teal;
+    border-radius: 100%;
+    color: $color-white;
+    display: inline-block;
+    font-size: 12px;
+    height: 150px;
+    line-height: 150px;
+    margin: 100px 10px 10px 20px;
+    text-align: center;
+    width: 150px;
+  }
+}

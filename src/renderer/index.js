@@ -10,6 +10,9 @@ import { getGateway } from './actions/gateway.js'
 import reducer from './reducers'
 import thunk from 'redux-thunk'
 
+// Include SASS styles
+require('./styles/main.scss')
+
 // Initialize Sia-UI's redux state store.
 // Use the combined reducer from reducers
 // Enable redux-thunk, which is required for our async actions

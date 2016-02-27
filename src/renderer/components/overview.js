@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
+// This will be removed and replaced with daemon.siacoinprecision
 const readableBalance = (balance) => Math.round((Number(balance) / Math.pow(10, 25))*100)/100
 
 // Stateless Overview view component
