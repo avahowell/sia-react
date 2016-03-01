@@ -2,21 +2,24 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 // This will be removed and replaced with daemon.siacoinprecision
-const readableBalance = (balance) => Math.round((Number(balance) / Math.pow(10, 25))*100)/100
+const readableBalance = (balance) => Math.round((Number(balance) / Math.pow(10, 24))*100)/100
 
 // Stateless Overview view component
 const OverviewView = ({ height, balance, peers }) => (
 	<div className="page">
 		<h1> Overview </h1>
 		<div className="infobar">
-			<div className="infobubble">
-				Block Height: {height}
+			<div className="infoitem">
+				<div className="infoitem_title">Block Height</div>
+				<div className="infoitem_content">{height}</div>
 			</div>
-			<div className="infobubble">
-				Balance: {readableBalance(balance)} SC
+			<div className="infoitem">
+				<div className="infoitem_title">Peers</div>
+				<div className="infoitem_content">{peers}</div>
 			</div>
-			<div className="infobubble">
-				Peers: {peers}
+			<div className="infoitem">
+				<div className="infoitem_title">Balance</div>
+				<div className="infoitem_content">{balance}</div>
 			</div>
 		</div>
 	</div>
@@ -31,7 +34,7 @@ OverviewView.propTypes = {
 const mapStateToProps = (state) => ({
 	height: state.overview.height,
 	peers: state.overview.peers,
-	balance: state.overview.balance,
+	balance: readableBalance(state.overview.balance),
 })
 
 const Overview = connect(

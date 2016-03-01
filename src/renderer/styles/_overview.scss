@@ -1,0 +1,22 @@
+/* Overview plugin styles */
+@import 'colors';
+$infobar-height: 40px;
+$infobar-width: 100%;
+
+.infobar {
+  height: $infobar-height;
+  width: $infobar-width;
+  margin-right: 20px;
+  position: relative;
+  top: 0;
+
+  .infoitem {
+    border: 1px solid $color-teal;
+    color: $color-white;
+    display: inline-block;
+    height: 100%;
+    padding: 10px 20px 10px 20px;
+    text-wrap: none;
+    text-align: center;
+  }
+}

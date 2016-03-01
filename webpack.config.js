@@ -7,7 +7,7 @@ module.exports = {
 	},
 	resolve: {
 		root: path.resolve('./node_modules')
-	},
+	}, 
 	resolveLoader: {
 		root: path.resolve('./node_modules'),
 	},
