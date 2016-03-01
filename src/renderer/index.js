@@ -32,8 +32,8 @@ setInterval(getState, 10000)
 
 // Import the endpoints for our routes.
 import App from './components/app.js'
-import Overview from './components/overview.js'
-import Files from './components/files.js'
+import Overview from './containers/overview.js'
+import Files from './containers/files.js'
 import Hosting from './components/hosting.js'
 import Wallet from './components/wallet.js'
 import Notifications from './components/notifications.js'

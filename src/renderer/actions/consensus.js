@@ -25,7 +25,8 @@ export const getConsensus = () => (dispatch) => {
 	SiadWrapper.call('/consensus', (err, consensus) => {
 		if (err) {
 			dispatch(apiError(err))
+		} else {
+			dispatch(receiveConsensus(consensus))
 		}
-		dispatch(receiveConsensus(consensus))
 	})
 }

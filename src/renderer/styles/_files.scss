@@ -1,0 +1,18 @@
+/* Files plugin styles */
+$file-table-height: 400px;
+
+.filetable-container {
+	height: $file-table-height;
+	width: 100%;
+
+	.filetable {
+		width: 100%;
+		position: relative;
+		top: 0;
+	}
+}
+
+.uploadbtn {
+	position:relative;
+	top: 25px;
+}
