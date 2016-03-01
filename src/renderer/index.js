@@ -24,6 +24,7 @@ const getState = () => {
 	store.dispatch(getConsensus())
 	store.dispatch(getWallet())
 	store.dispatch(getGateway())
+	store.dispatch(getFiles())
 }
 getState()
 // Poll for state every 10 seconds

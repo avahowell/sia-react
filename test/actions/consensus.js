@@ -31,4 +31,3 @@ describe('consensus actions', () => {
 		store.dispatch(getConsensus())
 	})
 })
-	

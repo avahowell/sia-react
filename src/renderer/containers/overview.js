@@ -1,4 +1,3 @@
-import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import OverviewView from '../components/overview.js'
 

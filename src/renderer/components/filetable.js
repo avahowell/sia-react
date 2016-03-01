@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { siaFile } from '../constants/renter.js'
 
 const FileTable = ({files}) => (
 	<table className="filetable">
@@ -10,8 +11,8 @@ const FileTable = ({files}) => (
 		</thead>
 		<tbody>
 		{
-			files.map((file) => (
-				<tr>
+			files.map((file, key) => (
+				<tr key={key}>
 					<td>file.name</td>
 					<td>file.size</td>
 				</tr>
@@ -21,7 +22,7 @@ const FileTable = ({files}) => (
 	</table>
 )
 FileTable.propTypes = {
-	files: PropTypes.array.isRequired,
+	files: PropTypes.arrayOf(siaFile),
 }
 
 export default FileTable

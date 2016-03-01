@@ -1,5 +1,7 @@
 import FileTable from '../components/filetable.js'
+import { siaFile } from '../constants/renter.js'
 import React, { PropTypes } from 'react'
+
 const FilesView = ({ files, handleUpload }) => (
 	<div className="page">
 		<h1> Files </h1>
@@ -10,7 +12,7 @@ const FilesView = ({ files, handleUpload }) => (
 	</div>
 )
 FilesView.propTypes = {
-	files: PropTypes.array.isRequired,
+	files: PropTypes.arrayOf(siaFile),
 	handleUpload: PropTypes.func.isRequired,
 }
 export default FilesView

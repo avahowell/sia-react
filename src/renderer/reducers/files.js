@@ -9,7 +9,7 @@ export default function files(state = initialState, action) {
 	case RECEIVE_FILES:
 		return {
 			...state,
-			files: action.files
+			files: action.files,
 		}
 	case API_ERROR:
 		console.error(action.error)
