@@ -11,7 +11,7 @@ export const requestFiles = () => ({
 
 export const receiveFiles = (files) => ({
 	type: RECEIVE_FILES,
-	files,
+	files: files,
 })
 export const startUpload = () => ({
 	type: START_UPLOAD,
@@ -22,7 +22,7 @@ export const getFiles = () => (dispatch) => {
 		if (err) {
 			dispatch(apiError(err))
 		} else {
-			dispatch(receiveFiles(response.files))
+			dispatch(receiveFiles(response))
 		}
 	})
 }
