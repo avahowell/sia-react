@@ -1,6 +1,6 @@
 import files from '../../src/renderer/reducers/files.js'
-import {RECEIVE_FILES} from '../../src/renderer/actions/renter.js'
-import {expect} from 'chai'
+import { RECEIVE_FILES } from '../../src/renderer/constants/renter.js'
+import { expect } from 'chai'
 
 describe('files reducer', () => {
 	it('should return initial state', () => {
@@ -16,7 +16,13 @@ describe('files reducer', () => {
 		}]
 		const filesaction = {
 			type: RECEIVE_FILES,
-			files: receivedfiles,
+			files: [{
+				siapath: 'test',
+				destination: 'test',
+				filesize: 1337,
+				received: 1337,
+				starttime: 'test',
+			}],
 		}
 		const newstate = files({}, filesaction)
 		expect(newstate.files).to.deep.equal(receivedfiles)

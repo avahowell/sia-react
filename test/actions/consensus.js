@@ -1,4 +1,5 @@
-import {REQUEST_CONSENSUS, RECEIVE_CONSENSUS, getConsensus} from '../../src/renderer/actions/consensus.js'
+import { getConsensus } from '../../src/renderer/actions/consensus.js'
+import { REQUEST_CONSENSUS, RECEIVE_CONSENSUS } from '../../src/renderer/constants/consensus.js'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import nock from 'nock'

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { START_UPLOAD } from '../actions/renter.js'
+import { START_UPLOAD } from '../constants/renter.js'
 import FilesView from '../components/files.js'
 
 const mapStateToProps = (state) => ({

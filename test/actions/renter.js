@@ -1,4 +1,5 @@
-import {REQUEST_FILES, RECEIVE_FILES, getFiles} from '../../src/renderer/actions/renter.js'
+import { getFiles } from '../../src/renderer/actions/renter.js'
+import { REQUEST_FILES, RECEIVE_FILES } from '../../src/renderer/constants/renter.js'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import nock from 'nock'

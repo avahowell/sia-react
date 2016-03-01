@@ -1,6 +1,6 @@
 // files.js: Files redux reducer
-import { RECEIVE_FILES } from '../actions/renter.js'
-import { API_ERROR } from '../actions/error.js'
+import { RECEIVE_FILES } from '../constants/renter.js'
+import { API_ERROR } from '../constants/error.js'
 
 const initialState = []
 

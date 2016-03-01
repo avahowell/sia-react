@@ -1,9 +1,7 @@
 // wallet.js: Sia-UI wallet redux actions
 import SiadWrapper from 'sia.js'
 import { apiError } from './error.js'
-
-export const REQUEST_WALLET = 'REQUEST_WALLET'
-export const RECEIVE_WALLET = 'RECEIVE_WALLET'
+import { REQUEST_WALLET, RECEIVE_WALLET } from '../constants/wallet.js'
 
 export const requestWallet = () => ({
 	type: REQUEST_WALLET,

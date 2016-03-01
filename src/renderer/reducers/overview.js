@@ -1,8 +1,8 @@
 // consensus.js: Sia-UI consensus reducer
-import { RECEIVE_CONSENSUS } from '../actions/consensus.js'
-import { RECEIVE_WALLET } from '../actions/wallet.js'
-import { RECEIVE_GATEWAY } from '../actions/gateway.js'
-import { API_ERROR } from '../actions/error.js'
+import { RECEIVE_CONSENSUS } from '../constants/consensus.js'
+import { RECEIVE_WALLET } from '../constants/wallet.js'
+import { RECEIVE_GATEWAY } from '../constants/gateway.js'
+import { API_ERROR } from '../constants/error.js'
 // Initial Sia-UI overview state
 const initialState = {
 	balance: '',

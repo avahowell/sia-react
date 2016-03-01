@@ -1,4 +1,5 @@
-import {REQUEST_WALLET, RECEIVE_WALLET, getWallet} from '../../src/renderer/actions/wallet.js'
+import { getWallet } from '../../src/renderer/actions/wallet.js'
+import { REQUEST_WALLET, RECEIVE_WALLET } from '../../src/renderer/constants/wallet.js'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import nock from 'nock'

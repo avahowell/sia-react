@@ -1,4 +1,5 @@
-import {REQUEST_GATEWAY, RECEIVE_GATEWAY, getGateway} from '../../src/renderer/actions/gateway.js'
+import { getGateway } from '../../src/renderer/actions/gateway.js'
+import { REQUEST_GATEWAY, RECEIVE_GATEWAY } from '../../src/renderer/constants/gateway.js'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import nock from 'nock'

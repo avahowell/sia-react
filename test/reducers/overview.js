@@ -1,7 +1,7 @@
 import overview from '../../src/renderer/reducers/overview.js'
-import {RECEIVE_WALLET} from '../../src/renderer/actions/wallet.js'
-import {RECEIVE_CONSENSUS} from '../../src/renderer/actions/consensus.js'
-import {RECEIVE_GATEWAY} from '../../src/renderer/actions/gateway.js'
+import {RECEIVE_WALLET} from '../../src/renderer/constants/wallet.js'
+import {RECEIVE_CONSENSUS} from '../../src/renderer/constants/consensus.js'
+import {RECEIVE_GATEWAY} from '../../src/renderer/constants/gateway.js'
 import {expect} from 'chai'
 
 describe('overview reducer', () => {

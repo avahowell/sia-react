@@ -1,9 +1,7 @@
 // consensus.js: Sia-UI consensus redux actions
 import SiadWrapper from 'sia.js'
 import { apiError } from './error.js'
-
-export const REQUEST_CONSENSUS = 'REQUEST_CONSENSUS'
-export const RECEIVE_CONSENSUS = 'RECEIVE_CONSENSUS'
+import { REQUEST_CONSENSUS, RECEIVE_CONSENSUS } from '../constants/consensus.js'
 
 export const requestConsensus = () => ({
 	type: REQUEST_CONSENSUS,

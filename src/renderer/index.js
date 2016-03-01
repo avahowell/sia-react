@@ -7,6 +7,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { getConsensus } from './actions/consensus.js'
 import { getWallet } from './actions/wallet.js'
 import { getGateway } from './actions/gateway.js'
+import { getFiles } from './actions/renter.js'
 import reducer from './reducers'
 import thunk from 'redux-thunk'
 

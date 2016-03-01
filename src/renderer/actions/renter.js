@@ -1,14 +1,10 @@
 import SiadWrapper from 'sia.js'
 import { apiError } from './error.js'
-
-export const REQUEST_FILES = 'REQUEST_FILES'
-export const RECEIVE_FILES = 'RECEIVE_FILES'
-export const START_UPLOAD = 'START_UPLOAD'
+import { REQUEST_FILES, RECEIVE_FILES, START_UPLOAD } from '../constants/renter.js'
 
 export const requestFiles = () => ({
 	type: REQUEST_FILES,
 })
-
 export const receiveFiles = (files) => ({
 	type: RECEIVE_FILES,
 	files: files,

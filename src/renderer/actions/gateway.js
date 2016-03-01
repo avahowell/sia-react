@@ -1,9 +1,7 @@
 // gateway.js: Sia-UI gateway redux actions
 import SiadWrapper from 'sia.js'
 import { apiError } from './error.js'
-
-export const REQUEST_GATEWAY = 'REQUEST_GATEWAY'
-export const RECEIVE_GATEWAY = 'RECEIVE_GATEWAY'
+import { REQUEST_GATEWAY, RECEIVE_GATEWAY } from '../constants/gateway.js'
 
 export const requestGateway = () => ({
 	type: REQUEST_GATEWAY,
