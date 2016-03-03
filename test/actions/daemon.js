@@ -1,5 +1,5 @@
-import { getDaemonConstants } from '../../src/renderer/actions/daemon.js'
-import { REQUEST_DAEMON_CONSTANTS, RECEIVE_DAEMON_CONSTANTS } from '../../src/renderer/constants/daemon.js'
+import * as actions from '../../src/renderer/actions/daemon.js'
+import * as constants from '../../src/renderer/constants/daemon.js'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import nock from 'nock'
@@ -9,8 +9,20 @@ const mockStore = configureMockStore(middlewares)
 const HTTP_OK = 200
 
 describe('daemon actions', () => {
+	it('creates RECEIVE_DAEMON_STOP on successful /daemon/stop call', (done) => {
+		const expectedActions = [
+			{ type: constants.REQUEST_DAEMON_STOP },
+			{ type: constants.RECEIVE_DAEMON_STOP },
+		]
+		nock('http://localhost:9980')
+			.get('/daemon/stop')
+			.reply(HTTP_OK, {})
+
+		const store = mockStore({}, expectedActions, done)
+		store.dispatch(actions.stopDaemon())
+	})
 	it('creates RECEIVE_DAEMON_CONSTANTS on successful /daemon/constants call', (done) => {
-		const constants = {
+		const expectedConstants = {
 			genesistimestamp: 0,
 			blocksizelimit: 0,	
 			blockfrequency: 0,
@@ -33,17 +45,17 @@ describe('daemon actions', () => {
 			siacoinprecision: '',
 		}
 		const expectedActions = [
-			{ type: REQUEST_DAEMON_CONSTANTS },
-			{ type: RECEIVE_DAEMON_CONSTANTS,
-				constants,
+			{ type: constants.REQUEST_DAEMON_CONSTANTS },
+			{ type: constants.RECEIVE_DAEMON_CONSTANTS,
+				constants: expectedConstants,
 			},
 		]
 
 		nock('http://localhost:9980')
 			.get('/daemon/constants')
-			.reply(HTTP_OK, constants)
+			.reply(HTTP_OK, expectedConstants)
 
 		const store = mockStore({}, expectedActions, done)
-		store.dispatch(getDaemonConstants())
+		store.dispatch(actions.getDaemonConstants())
 	})
 })
