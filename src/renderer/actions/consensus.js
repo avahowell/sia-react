@@ -3,11 +3,11 @@ import SiadWrapper from 'sia.js'
 import { apiError } from './error.js'
 import { REQUEST_CONSENSUS, RECEIVE_CONSENSUS } from '../constants/consensus.js'
 
-export const requestConsensus = () => ({
+const requestConsensus = () => ({
 	type: REQUEST_CONSENSUS,
 })
 
-export const receiveConsensus = (consensus) => ({
+const receiveConsensus = (consensus) => ({
 	type: RECEIVE_CONSENSUS,
 	height: consensus.height,
 	currentblock: consensus.currentblock,

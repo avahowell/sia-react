@@ -3,11 +3,11 @@ import SiadWrapper from 'sia.js'
 import { apiError } from './error.js'
 import { REQUEST_GATEWAY, RECEIVE_GATEWAY } from '../constants/gateway.js'
 
-export const requestGateway = () => ({
+const requestGateway = () => ({
 	type: REQUEST_GATEWAY,
 })
 
-export const receiveGateway = (gateway) => ({
+const receiveGateway = (gateway) => ({
 	type: RECEIVE_GATEWAY,
 	peers: gateway.peers,
 	netaddress: gateway.netaddress,

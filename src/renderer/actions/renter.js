@@ -1,6 +1,6 @@
 import SiadWrapper from 'sia.js'
 import { apiError } from './error.js'
-import { REQUEST_FILES, RECEIVE_FILES, START_UPLOAD } from '../constants/renter.js'
+import * as constants from '../constants/renter.js'
 
 // Renter actions, used to interface with Siad.
 // REQUEST_ actions indicate that a Siad request has been initiated,
@@ -9,15 +9,19 @@ import { REQUEST_FILES, RECEIVE_FILES, START_UPLOAD } from '../constants/renter.
 // A reducer should be used to map this data to the UI components.
 
 // Action creator functions
-export const requestFiles = () => ({
-	type: REQUEST_FILES,
+const requestFiles = () => ({
+	type: constants.REQUEST_FILES,
 })
-export const receiveFiles = (files) => ({
-	type: RECEIVE_FILES,
-	files: files,
+const receiveFiles = (files) => ({
+	type: constants.RECEIVE_FILES,
+	files,
 })
-export const startUpload = () => ({
-	type: START_UPLOAD,
+const requestDownloads = () => ({
+	type: constants.REQUEST_DOWNLOADS,
+})
+const receiveDownloads = (downloads) => ({
+	type: constants.RECEIVE_DOWNLOADS,
+	downloads,
 })
 
 // getFiles: asynchronously request /renter/files data from the Siad API.
@@ -29,6 +33,16 @@ export const getFiles = () => (dispatch) => {
 			dispatch(apiError(err))
 		} else {
 			dispatch(receiveFiles(response))
+		}
+	})
+}
+export const getDownloads = () => (dispatch) => {
+	dispatch(requestDownloads())
+	SiadWrapper.call('/renter/downloads', (err, response) => {
+		if (err) {
+			dispatch(apiError(err))
+		} else {
+			dispatch(receiveDownloads(response))
 		}
 	})
 }

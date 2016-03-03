@@ -2,17 +2,17 @@ import SiadWrapper from 'sia.js'
 import { apiError } from './error.js'
 import * as actions from '../constants/daemon.js'
 
-export const requestDaemonConstants = () => ({
+const requestDaemonConstants = () => ({
 	type: actions.REQUEST_DAEMON_CONSTANTS,
 })
-export const receiveDaemonConstants = (constants) => ({
+const receiveDaemonConstants = (constants) => ({
 	type: actions.RECEIVE_DAEMON_CONSTANTS,
 	constants,
 })
-export const requestDaemonStop = () => ({
+const requestDaemonStop = () => ({
 	type: actions.REQUEST_DAEMON_STOP,
 })
-export const receiveDaemonStop = () => ({
+const receiveDaemonStop = () => ({
 	type: actions.RECEIVE_DAEMON_STOP,
 })
 export const getDaemonConstants = () => (dispatch) => {
@@ -27,7 +27,7 @@ export const getDaemonConstants = () => (dispatch) => {
 }
 export const stopDaemon = () => (dispatch) => {
 	dispatch(requestDaemonStop())
-	SiadWrapper.call('/daemon/stop', (err, body) => {
+	SiadWrapper.call('/daemon/stop', (err) => {
 		if (err) {
 			dispatch(apiError(err))
 		} else {

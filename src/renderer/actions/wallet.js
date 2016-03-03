@@ -3,10 +3,10 @@ import SiadWrapper from 'sia.js'
 import { apiError } from './error.js'
 import { REQUEST_WALLET, RECEIVE_WALLET } from '../constants/wallet.js'
 
-export const requestWallet = () => ({
+const requestWallet = () => ({
 	type: REQUEST_WALLET,
 })
-export const receiveWallet = (wallet) => ({
+const receiveWallet = (wallet) => ({
 	type: RECEIVE_WALLET,
 	confirmedsiacoinbalance: wallet.confirmedsiacoinbalance,
 	unconfirmedoutgoingsiacoins: wallet.unconfirmedoutgoingsiacoins,

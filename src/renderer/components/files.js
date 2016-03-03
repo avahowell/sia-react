@@ -1,5 +1,4 @@
 import FileTable from '../containers/filetable.js'
-import { siaFile } from '../constants/renter.js'
 import React, { PropTypes } from 'react'
 
 const FilesView = ({ handleUpload }) => (

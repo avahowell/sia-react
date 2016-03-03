@@ -24,7 +24,7 @@ describe('daemon actions', () => {
 	it('creates RECEIVE_DAEMON_CONSTANTS on successful /daemon/constants call', (done) => {
 		const expectedConstants = {
 			genesistimestamp: 0,
-			blocksizelimit: 0,	
+			blocksizelimit: 0,
 			blockfrequency: 0,
 			targetwindow: 0,
 			mediantimestampwindow: 0,
