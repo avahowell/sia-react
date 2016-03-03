@@ -58,4 +58,5 @@ const routes = (
 	</Provider>
 )
 
+// Mount sia-react UI
 ReactDOM.render(routes, document.getElementById('app'))
