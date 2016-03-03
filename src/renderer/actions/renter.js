@@ -28,10 +28,7 @@ export const getFiles = () => (dispatch) => {
 		if (err) {
 			dispatch(apiError(err))
 		} else {
-			if (!response.files) {
-				response.files = []
-			}
-			dispatch(receiveFiles(response.files))
+			dispatch(receiveFiles(response))
 		}
 	})
 }
