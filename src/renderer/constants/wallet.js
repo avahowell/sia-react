@@ -1,0 +1,2 @@
+export const REQUEST_WALLET = 'REQUEST_WALLET'
+export const RECEIVE_WALLET = 'RECEIVE_WALLET'
