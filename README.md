@@ -19,7 +19,7 @@ Contains the main entrypoint for the electron application, defining the behavior
 ## [src/renderer](src/renderer)
 
 Contains the main entrypoint for the sia-react application.  All of this code is webpacked and run inside the Electron `renderer` process.
-The `renderer` process is where the application state is managed, using [https://github.com/reactjs/redux](redux).  
+The `renderer` process is where the application state is managed, using [redux](https://github.com/reactjs/redux).  
 
 sia-react implements a standard Redux application structure.
 
